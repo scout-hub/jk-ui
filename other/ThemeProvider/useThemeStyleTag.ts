@@ -6,7 +6,7 @@
  */
 import { useId, useLayoutEffect, useRef, } from "react";
 import { ThemeProviderProps } from "./ThemeProvider";
-import { Theme } from 'jk-ui';
+import { Theme } from 'jkyun-ui';
 
 // 根据 theme 创建 css 规则
 export const createCSSRuleFromTheme = (selector: string, theme?: Partial<Theme>) => {
@@ -42,7 +42,7 @@ const insertSheet = (styleTag: HTMLStyleElement, rule: string) => {
 export const useThemeStyleTag = ({ theme }: Partial<ThemeProviderProps>) => {
   const themeId = useId();
   const escapedId = themeId.replace(/:/g, "");
-  const themeClassName = `jk-ui-theme${escapedId}`;
+  const themeClassName = `jkyun-ui-theme${escapedId}`;
   const rule = createCSSRuleFromTheme(`.${themeClassName}`, theme);
   const styleTag = useRef<HTMLStyleElement | undefined | null>(null);
 

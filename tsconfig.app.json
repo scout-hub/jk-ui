@@ -22,12 +22,13 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "jk-ui": [
+      "jkyun-ui": [
         "./src/index.ts"
       ]
     }
   },
   "include": [
-    "src"
+    "src",
+    "other"
   ]
 }

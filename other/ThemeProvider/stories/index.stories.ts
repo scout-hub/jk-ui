@@ -5,7 +5,7 @@
  * @LastEditTime: 2024-09-14 09:51:52
  */
 import type { Meta } from '@storybook/react';
-import { ThemeProvider } from 'jk-ui';
+import { ThemeProvider } from 'jkyun-ui';
 import { Default } from './Default.stories';
 import DefaultSource from './Default.stories.tsx?raw';
 

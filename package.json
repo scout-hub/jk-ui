@@ -1,11 +1,17 @@
 {
-  "name": "jk-ui",
-  "private": true,
-  "version": "0.0.0",
+  "name": "jkyun-ui",
+  "version": "0.1.1",
   "type": "module",
+  "author": "Scout",
+  "main": "dist/jkyun-ui.cjs.js",
+  "module": "dist/jkyun-ui.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build && tsc -b",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
@@ -14,6 +20,9 @@
     "sk-docs": "storybook dev --docs",
     "build-storybook-docs": "storybook build --docs",
     "test": "vitest"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@griffel/react": "^1.5.25",
@@ -46,11 +55,16 @@
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
     "vite": "^5.4.1",
+    "vite-plugin-dts": "^4.2.1",
     "vitest": "^2.1.1"
   },
   "eslintConfig": {
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scout-hub/jkyun-ui"
   }
 }

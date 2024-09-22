@@ -6,7 +6,7 @@
  * @LastEditTime: 2024-09-14 10:00:16
  */
 import React from 'react';
-import {Theme} from 'jk-ui';
+import {Theme} from 'jkyun-ui';
 import { useStyles } from './useStyles.styles';
 
 type ThemeContextValue = Theme | Partial<Theme> | undefined;

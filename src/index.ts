@@ -4,6 +4,8 @@
  * @LastEditors: Zhouqi
  * @LastEditTime: 2024-09-13 21:03:49
  */
+export * from './color';
 export * from './tokens'
-export * from './components/Button';
-export * from './components/ThemeProvider';
+export * from './components/button';
+export * from '../other/ThemeProvider';
+export { useStyles } from './helper'

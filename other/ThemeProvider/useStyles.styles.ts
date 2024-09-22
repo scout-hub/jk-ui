@@ -8,10 +8,10 @@
 import { makeStyles, mergeClasses } from "@griffel/react";
 import { useThemeStyleTag } from "./useThemeStyleTag";
 import { ThemeProviderProps } from "./ThemeProvider";
-import { tokens } from "jk-ui";
+import { tokens } from "jkyun-ui";
 
 const JkProviderClassNames = {
-  root: "jk-ui-ThemeProvider",
+  root: "jkyun-ui-ThemeProvider",
 };
 
 const useBaseStyles = makeStyles({

@@ -4,7 +4,7 @@
  * @LastEditors: Zhouqi
  * @LastEditTime: 2024-09-13 20:53:33
  */
-import {  Button, ThemeProvider,dark,light } from "jk-ui";
+import {  Button, ThemeProvider,dark,light } from "jkyun-ui";
 
 export const Default = () => {
   return <div>
