@@ -14,10 +14,9 @@ const resolve = (str: string) => path.resolve(__dirname, str)
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(),
-  dts({
-    rollupTypes: true,
-  }),
+  plugins: [
+    react(),
+    dts(),
   ],
   build: {
     outDir: "dist",
