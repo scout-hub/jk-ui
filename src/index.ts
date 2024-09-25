@@ -6,7 +6,7 @@
  */
 export * from './color';
 export * from './tokens'
-export * from './components/button';
+export * from './components/button1';
 export * from './components/button-group'
 export { useStyles } from './helper';
 export type { ThemeProviderProps } from './helper';

@@ -1,5 +1,5 @@
 import { mergeClasses } from "@griffel/react";
-import { ButtonGroupProps } from "../../button/button.types";
+import { ButtonGroupProps } from "../../button1/button.types";
 import { useBaseStyle } from "./token";
 import { useMemo } from "react";
 
