@@ -38,12 +38,12 @@ const useBaseStyles = makeStyles({
 });
 
 export const useStyles = ({ theme, componentTag }: Partial<ThemeProviderProps>) => {
-  const componentCls = useStyleTag({ theme, componentTag });
+  useStyleTag({ theme, componentTag });
   const baseStyle = useBaseStyles();
 
   const cls = mergeClasses(
     baseStyle.root,
-    componentCls,
+    componentTag,
   );
   return cls;
 }

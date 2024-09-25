@@ -44,6 +44,16 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    size: {
+      name: 'size',
+      description: '尺寸',
+      table: {
+        defaultValue: {
+          summary: 'middle',
+          detail: 'small | middle | large',
+        },
+      },
+    },
   },
 } as Meta<typeof Button>;
 

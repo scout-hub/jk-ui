@@ -52,13 +52,14 @@ const getButtonHoverCls = ({ type, disabled }: Partial<ThemeProviderProps & Butt
 
 // 根据 props 计算样式
 export const useStyleByProps = (props: Partial<ThemeProviderProps & ButtonProps>) => {
-  const { type = 'default', className, disabled, size = 'middle' } = props;
+  const { type, className, disabled, size } = props;
   const baseButtonStyle = useBaseButtonStyle();
   const buttonTheme = getButtonThemeFromProps({ type, disabled, size });
   const buttonHoverCls = getButtonHoverCls({ type, disabled });
-  const themeCls = useStyles({ theme: buttonTheme, componentTag: `jk-button--${type}` });
+  const themeCls = useStyles({ theme: buttonTheme, componentTag: `jk-button--${type}--${size}${disabled ? '--disabled' : ''}` });
 
   return mergeClasses(
+    'jk-button',
     baseButtonStyle.root,
     themeCls,
     buttonHoverCls,

@@ -4,8 +4,10 @@
  * @LastEditors: Zhouqi
  * @LastEditTime: 2024-09-14 10:22:17
  */
-import { useId, useLayoutEffect, useRef, } from "react";
+import { useLayoutEffect, useMemo, useRef, } from "react";
 import { Theme } from 'jkyun-ui';
+
+const existComponentTags = new Set();
 
 type ThemeContextValue = Theme | Partial<Theme> | undefined;
 
@@ -46,22 +48,21 @@ const insertSheet = (styleTag: HTMLStyleElement, rule: string) => {
 }
 
 export const useStyleTag = ({ theme, componentTag }: Partial<ThemeProviderProps>) => {
-  const clsId = useId();
-  const escapedId = clsId.replace(/:/g, "");
-  const componentCls = `${componentTag}${escapedId}`;
-  const rule = createCSSRuleFromTheme(`.${componentCls}`, theme);
+  const rule = useMemo(() => createCSSRuleFromTheme(`.${componentTag}`, theme), [theme, componentTag]);
   const styleTag = useRef<HTMLStyleElement | undefined | null>(null);
 
   useLayoutEffect(() => {
-    styleTag.current = createStyleTag(componentCls!);
+    // 已经存在的 componentTag 不再创建
+    if (existComponentTags.has(componentTag)) return;
+    styleTag.current = createStyleTag(componentTag!);
     // tag 存在时插入样式
     if (styleTag.current) {
       insertSheet(styleTag.current, rule);
+      existComponentTags.add(componentTag);
     }
     return () => {
       styleTag.current?.remove();
+      existComponentTags.delete(componentTag);
     }
-  }, [componentCls, rule]);
-
-  return componentCls;
+  }, [componentTag, rule]);
 }
