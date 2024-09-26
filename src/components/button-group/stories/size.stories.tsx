@@ -10,7 +10,7 @@ const useClasses = makeStyles({
   },
 });
 
-export const SizeGroupButton = () => {
+export const SizeButtonGroup = () => {
   const styles = useClasses();
 
   return (

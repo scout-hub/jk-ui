@@ -5,6 +5,7 @@ export type SizeTypes = "small" | "middle" | "large";
 export type GroupButtonContextType = {
   size?: SizeTypes;
   type?: ButtonTypes;
+  disabled?: boolean;
 } | undefined;
 
 type MergedHTMLAttributes = Omit<
@@ -23,7 +24,5 @@ export type ButtonProps = {
 
 export type ButtonGroupProps = ButtonProps &
 {
-  children?: React.ReactNode;
   gap?: number;
-  style?: React.CSSProperties;
 };

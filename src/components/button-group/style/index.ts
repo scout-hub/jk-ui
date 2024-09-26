@@ -11,7 +11,7 @@ export const useStyleByProps = (props: ButtonGroupProps) => {
     ...style
   }), [gap, style]);
   return {
-    cls: mergeClasses('jk-button-group', cls.root, gap ? cls.hasGap : cls.notHasGap),
+    cls: mergeClasses('jk-button-group', cls.root, gap && gap > 0 ? cls.hasGap : cls.notHasGap),
     dynamicStyle
   }
 }

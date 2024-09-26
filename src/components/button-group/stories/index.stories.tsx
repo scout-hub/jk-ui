@@ -5,13 +5,15 @@
  * @LastEditTime: 2024-09-19 20:45:08
  */
 import type { Meta, StoryFn } from '@storybook/react';
-import { Button } from 'jkyun-ui';
-import { TypeGroupButton } from './type.stories';
+import { Button, ButtonGroup } from 'jkyun-ui';
+import { TypeButtonGroup } from './type.stories';
 import TypeButtonGroupCode from './type.stories?raw';
-import { SizeGroupButton } from './size.stories';
+import { SizeButtonGroup } from './size.stories';
 import SizeButtonGroupCode from './size.stories?raw';
-import { GapGroupButton } from './gap.stories';
+import { GapButtonGroup } from './gap.stories';
 import GapButtonGroupCode from './gap.stories?raw';
+import { DisabledButtonGroup } from './disabled.stories';
+import DisabledButtonGroupCode from './disabled.stories?raw';
 
 export default {
   title: '组件/ButtonGroup 按钮组',
@@ -27,6 +29,10 @@ export default {
     type: {
       name: 'type',
       description: '类型',
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'primary', 'danger', 'success', 'info', 'warning'],
       table: {
         defaultValue: {
           summary: 'default',
@@ -37,6 +43,10 @@ export default {
     size: {
       name: 'size',
       description: '尺寸',
+      control: {
+        type: 'select',
+      },
+      options: ['small', 'middle', 'large'],
       table: {
         defaultValue: {
           summary: 'middle',
@@ -47,6 +57,9 @@ export default {
     gap: {
       name: 'gap',
       description: '间距',
+      control: {
+        type: 'number',
+      },
       table: {
         defaultValue: {
           summary: 0,
@@ -54,11 +67,40 @@ export default {
         },
       },
     },
+    disabled: {
+      name: 'disabled',
+      description: '是否禁用',
+      control: {
+        type: 'boolean',
+      },
+      table: {
+        defaultValue: {
+          summary: 'false',
+          detail: 'boolean',
+        },
+      },
+    },
   },
 } as Meta<typeof Button>;
 
+const Template: StoryFn = (args) => (
+  <ButtonGroup {...args}>
+    <Button>Default</Button>
+    <Button>Primary</Button>
+    <Button>Danger</Button>
+  </ButtonGroup>
+);
+
+export const DefaultButtonGroup: StoryFn = Template.bind({});
+DefaultButtonGroup.args = {
+  type: 'primary',
+  size: 'middle',
+  gap: 0,
+  disabled: false,
+};
+
 // 按钮类型
-export const StoryButtonGroup: StoryFn = TypeGroupButton;
+export const StoryButtonGroup: StoryFn = TypeButtonGroup;
 StoryButtonGroup.storyName = '基础用法';
 StoryButtonGroup.parameters = {
   docs: {
@@ -72,7 +114,7 @@ StoryButtonGroup.parameters = {
 };
 
 // 按钮组尺寸
-export const StorySizeButtonGroup: StoryFn = SizeGroupButton;
+export const StorySizeButtonGroup: StoryFn = SizeButtonGroup;
 StorySizeButtonGroup.storyName = '尺寸';
 StorySizeButtonGroup.parameters = {
   docs: {
@@ -86,7 +128,7 @@ StorySizeButtonGroup.parameters = {
 };
 
 // 按钮组间距
-export const StoryGapButtonGroup: StoryFn = GapGroupButton;
+export const StoryGapButtonGroup: StoryFn = GapButtonGroup;
 StoryGapButtonGroup.storyName = '间距';
 StoryGapButtonGroup.parameters = {
   docs: {
@@ -95,6 +137,20 @@ StoryGapButtonGroup.parameters = {
     },
     description: {
       story: `使用 gap 来设置按钮之间的间距。`,
+    },
+  },
+};
+
+// 禁用状态
+export const StoryDisabledButtonGroup: StoryFn = DisabledButtonGroup;
+StoryDisabledButtonGroup.storyName = '禁用状态';
+StoryDisabledButtonGroup.parameters = {
+  docs: {
+    source: {
+      code: DisabledButtonGroupCode,
+    },
+    description: {
+      story: `使用 disabled 来禁用按钮组。`,
     },
   },
 };

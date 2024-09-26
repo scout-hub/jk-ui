@@ -10,7 +10,7 @@ const useClasses = makeStyles({
   },
 });
 
-export const GapGroupButton = () => {
+export const GapButtonGroup = () => {
   const styles = useClasses();
 
   return (

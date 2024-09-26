@@ -10,21 +10,37 @@ const useClasses = makeStyles({
   },
 });
 
-export const TypeGroupButton = () => {
-  const styles = useClasses();
+export const TypeButtonGroup = () => {
+  const style = useClasses();
 
   return (
-    <div className={styles.root}>
-      <ButtonGroup type="primary">
+    <div className={style.root}>
+      <ButtonGroup>
         <Button>Default</Button>
+        <Button>Default</Button>
+      </ButtonGroup>
+      <ButtonGroup type="primary">
         <Button>Primary</Button>
-        <Button>Danger</Button>
+        <Button>Primary</Button>
       </ButtonGroup>
       <ButtonGroup type="danger">
-        <Button>Success</Button>
-        <Button>Info</Button>
-        <Button>Warning</Button>
+        <Button>Primary</Button>
+        <Button>Primary</Button>
+      </ButtonGroup>
+      <ButtonGroup type="success">
+        <Button>Primary</Button>
+        <Button>Primary</Button>
+      </ButtonGroup>
+      <ButtonGroup type="info">
+        <Button>Primary</Button>
+        <Button>Primary</Button>
+      </ButtonGroup>
+      <ButtonGroup type="warning">
+        <Button>Primary</Button>
+        <Button>Primary</Button>
       </ButtonGroup>
     </div>
   );
 };
+
+// todo：主题销毁导致其他控件样式丢失

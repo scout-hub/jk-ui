@@ -7,7 +7,7 @@
 import { useLayoutEffect, useMemo, useRef, } from "react";
 import { Theme } from 'jkyun-ui';
 
-const existComponentTags = new Set();
+const existComponentTags = new Map();
 
 type ThemeContextValue = Theme | Partial<Theme> | undefined;
 
@@ -29,7 +29,6 @@ export const createCSSRuleFromTheme = (selector: string, theme?: Partial<Theme>)
 
 // 创建 style 标签
 const createStyleTag = (id: string) => {
-  if (!document) return null;
   const styleTag = document.createElement('style');
   styleTag.id = id;
   document.head.appendChild(styleTag);
@@ -52,15 +51,15 @@ export const useStyleTag = ({ theme, componentTag }: Partial<ThemeProviderProps>
   const styleTag = useRef<HTMLStyleElement | undefined | null>(null);
 
   useLayoutEffect(() => {
+    if (!document) return;
+    const occurrence = existComponentTags.get(componentTag);
+    existComponentTags.set(componentTag, occurrence ? occurrence + 1 : 1);
     // 已经存在的 componentTag 不再创建
-    if (existComponentTags.has(componentTag)) return;
+    if (occurrence > 1) return;
     styleTag.current = createStyleTag(componentTag!);
-    // tag 存在时插入样式
-    if (styleTag.current) {
-      insertSheet(styleTag.current, rule);
-      existComponentTags.add(componentTag);
-    }
+    insertSheet(styleTag.current, rule);
     return () => {
+      if (existComponentTags.get(componentTag) > 1) return;
       styleTag.current?.remove();
       existComponentTags.delete(componentTag);
     }

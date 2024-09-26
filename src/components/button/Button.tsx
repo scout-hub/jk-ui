@@ -23,10 +23,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       () => type ?? groupButtonContextValue?.type ?? 'default',
       [type, groupButtonContextValue?.type]
     );
+    const realDisabled = useMemo(
+      () => disabled ?? groupButtonContextValue?.disabled ?? false,
+      [disabled, groupButtonContextValue?.disabled]
+    );
     const cls = useStyleByProps({
       type: realType,
       className,
-      disabled,
+      disabled: realDisabled,
       size: realSize,
     });
     return (

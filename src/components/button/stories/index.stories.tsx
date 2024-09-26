@@ -27,6 +27,10 @@ export default {
     type: {
       name: 'type',
       description: '类型',
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'primary', 'danger', 'success', 'info', 'warning'],
       table: {
         defaultValue: {
           summary: 'default',
@@ -47,6 +51,10 @@ export default {
     size: {
       name: 'size',
       description: '尺寸',
+      control: {
+        type: 'select',
+      },
+      options: ['small', 'middle', 'large'],
       table: {
         defaultValue: {
           summary: 'middle',
@@ -56,6 +64,14 @@ export default {
     },
   },
 } as Meta<typeof Button>;
+
+const Template: StoryFn = (args) => <Button {...args}>按钮</Button>;
+export const DefaultButtonGroup: StoryFn = Template.bind({});
+DefaultButtonGroup.args = {
+  type: 'primary',
+  size: 'middle',
+  disabled: false,
+};
 
 // 按钮 type 属性
 export const StoryTypeButton: StoryFn = TypeButton;
