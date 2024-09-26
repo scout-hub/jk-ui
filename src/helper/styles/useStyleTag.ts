@@ -55,7 +55,7 @@ export const useStyleTag = ({ theme, componentTag }: Partial<ThemeProviderProps>
     const occurrence = existComponentTags.get(componentTag);
     existComponentTags.set(componentTag, occurrence ? occurrence + 1 : 1);
     // 已经存在的 componentTag 不再创建
-    if (occurrence > 1) return;
+    if (occurrence >= 1) return;
     styleTag.current = createStyleTag(componentTag!);
     insertSheet(styleTag.current, rule);
     return () => {
