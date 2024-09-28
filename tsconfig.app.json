@@ -24,6 +24,9 @@
     "paths": {
       "jkyun-ui": [
         "./src/index.ts"
+      ],
+      "@/*": [
+        "./src/*"
       ]
     }
   },

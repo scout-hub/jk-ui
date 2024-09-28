@@ -8,5 +8,6 @@ export * from './color';
 export * from './tokens'
 export * from './components/button';
 export * from './components/button-group'
+export * from './components/grid';
 export { useStyles } from './helper';
 export type { ThemeProviderProps } from './helper';

@@ -40,6 +40,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "jkyun-ui": path.resolve(__dirname, "./src/index.ts"),
+      '@': path.resolve(__dirname, "./src"),
     },
   },
   test: {

@@ -5,4 +5,4 @@
  * @LastEditTime: 2024-09-13 14:15:13
  */
 export * from './Button';
-export * from '../button-group/ButtonGroup';
+export * from './button.types';
