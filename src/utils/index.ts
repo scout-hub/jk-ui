@@ -1,1 +1,1 @@
-export const isArray = (value: unknown): boolean => Array.isArray(value);
+export const isArray = (value: unknown):value is unknown[] => Array.isArray(value);

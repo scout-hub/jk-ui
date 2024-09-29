@@ -1,7 +1,8 @@
+
 export type RowProps = React.HTMLAttributes<HTMLDivElement> & {
-  children?: React.ReactElement<ColProps>[]
+  gutter?: number | [number, number];
+  column?: number;
 }
 export type ColProps = React.HTMLAttributes<HTMLDivElement> & {
   span?: number;
-  gridColumn?: string;
 }
